@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MosquesFragment"
+    android:id="@+id/mosquee_layout">
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="67dp"
+        android:layout_height="65dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:indeterminateTint="@color/colorPrimary" />
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="396dp"
+        android:layout_marginLeft="20dp"
+        android:orientation="vertical"
+        tools:context=".MainActivity2">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="74dp"
+            android:orientation="vertical">
+
+            <SearchView
+                android:id="@+id/mosquee_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <View
+                android:id="@+id/divider12"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="5dp"
+                android:background="?android:attr/listDivider" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="77dp"
+            android:layout_marginTop="-20dp"
+            android:orientation="horizontal">
+
+
+            <ImageButton
+                android:id="@+id/imageButton4"
+                android:layout_width="315dp"
+                android:layout_height="57dp"
+                android:layout_marginTop="17dp"
+                android:layout_weight="1"
+                android:background="@drawable/ic_home" />
+
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/allM"
+                android:layout_width="435dp"
+                android:layout_height="61dp"
+                android:layout_marginLeft="150dp"
+                android:layout_marginTop="17dp"
+                android:layout_weight="1"
+                android:checkable="true"
+                android:text="@string/chipAllmosquees"
+                android:textAlignment="2"
+                app:chipIcon="@drawable/t"
+                app:iconStartPadding="5dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/ditance"
+                android:layout_width="168dp"
+                android:layout_height="63dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="17dp"
+                android:layout_marginRight="150dp"
+                android:text="@string/chipclosermosquees"
+                app:chipIcon="@drawable/distanceeicon"
+                app:iconStartPadding="2dp" />
+
+
+        </LinearLayout>
+
+
+        <View
+            android:id="@+id/divider10"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_marginRight="5dp"
+            android:background="?android:attr/listDivider" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="251dp"
+            android:layout_marginTop="7dp"
+            android:orientation="horizontal">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/mosquee_list"
+                android:layout_width="694dp"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</FrameLayout>

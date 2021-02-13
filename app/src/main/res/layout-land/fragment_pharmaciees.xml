@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MosquesFragment"
+    android:id="@+id/mosquee_layout">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="64dp"
+        android:layout_height="69dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:indeterminateTint="@color/colorPrimary" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="379dp"
+        android:layout_marginLeft="20dp"
+        android:orientation="vertical"
+        tools:context=".MainActivity2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="74dp"
+            android:orientation="vertical">
+
+
+            <SearchView
+                android:id="@+id/pharmacie_search"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"></SearchView>
+
+            <View
+                android:id="@+id/divider12"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="5dp"
+                android:background="?android:attr/listDivider" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="700dp"
+            android:layout_height="74dp"
+            android:orientation="horizontal">
+
+
+            <ImageButton
+                android:id="@+id/imageButton4"
+                android:layout_width="30dp"
+                android:layout_height="53dp"
+                android:layout_marginTop="17dp"
+                android:layout_marginRight="90dp"
+                android:layout_weight="1"
+                android:background="@drawable/ic_home" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/allP"
+                android:layout_width="203dp"
+                android:layout_height="61dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:checkable="true"
+                android:gravity="center_horizontal"
+                android:text="@string/chipAlllpharmacies"
+                android:textAlignment="center"
+                app:chipIcon="@drawable/t"
+                app:iconStartPadding="5dp" />
+
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/ditance"
+                android:layout_width="248dp"
+                android:layout_height="63dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="80dp"
+                android:gravity="center_horizontal"
+                android:text="@string/chipClosePharmacies"
+                android:textAlignment="center"
+                app:chipIcon="@drawable/distanceeicon"
+                app:iconStartPadding="4dp" />
+
+
+        </LinearLayout>
+
+
+        <View
+            android:id="@+id/divider10"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_marginRight="5dp"
+            android:background="?android:attr/listDivider" />
+
+        <LinearLayout
+            android:layout_width="700dp"
+            android:layout_height="217dp"
+            android:layout_marginTop="7dp"
+            android:orientation="horizontal">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/pharmacie_list"
+                android:layout_width="625dp"
+                android:layout_height="219dp"
+                android:layout_marginLeft="50dp" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+
+
+</FrameLayout>
