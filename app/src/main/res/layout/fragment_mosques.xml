@@ -73,9 +73,8 @@
                     android:layout_weight="1"
                     android:text="@string/chipAllmosquees"
                     android:checkable="true"
-                    android:textAlignment="2"
-                    app:chipIcon="@drawable/t"
-                    app:iconStartPadding="5dp" />
+                    android:textAlignment="center"
+                    android:gravity="center_horizontal" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/ditance"
@@ -83,8 +82,10 @@
                     android:layout_height="63dp"
                     android:layout_marginLeft="15dp"
                     android:text="@string/chipclosermosquees"
-                    app:chipIcon="@drawable/distanceeicon"
-                    app:iconStartPadding="2dp" />
+                    android:textAlignment="center"
+                    android:gravity="center_horizontal"
+                    android:checkable="true"
+                    />
 
 
             </LinearLayout>

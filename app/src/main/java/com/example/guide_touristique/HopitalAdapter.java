@@ -22,6 +22,7 @@ import java.util.ArrayList;
 
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -114,8 +115,7 @@ public class HopitalAdapter extends RecyclerView.Adapter<ViewHolder> {
         holder.LATITUDE_textview.setText(Double.toString(Hopitaux.get(position).getHopitallatitude()));
         holder.localisation_pic.setImageResource(R.drawable.marker_red);
         holder.distance_textview.setText(Hopitaux.get(position).getDuree());
-
-        holder.tel_pic.setImageResource( Resources.getSystem().getIdentifier("sym_action_call", "drawable", "android"));
+        holder.tel_pic.setImageResource(R.drawable.phone_green);
 
         Log.d("jnkljmlkj", "nkmljùh");
     }
@@ -144,7 +144,7 @@ public class HopitalAdapter extends RecyclerView.Adapter<ViewHolder> {
     class ViewHolder extends RecyclerView.ViewHolder {
         public RatingBar hopital_rating;
         public ImageView imageView;
-        public LinearLayout linearLayout;
+        public CardView linearLayout;
         public TextView name_textview;
         public TextView adress_textview;
         public TextView tel_textview;
@@ -163,7 +163,7 @@ public class HopitalAdapter extends RecyclerView.Adapter<ViewHolder> {
             this.type_textview = (TextView) itemView.findViewById(R.id.hopital_type);
             this.imageView = (ImageView) itemView.findViewById(R.id.imageView);
             this.hopital_rating=(RatingBar)itemView.findViewById(R.id.ratingBar);
-            linearLayout = (LinearLayout) itemView.findViewById(R.id.hopital_layout);
+            linearLayout = (CardView) itemView.findViewById(R.id.hopital_layout);
             this.localisation_pic = (ImageView) itemView.findViewById(R.id.imageView3);
             this.LATITUDE_textview = (TextView) itemView.findViewById(R.id.latitude);
             this.LONGITUDE_textview = (TextView) itemView.findViewById(R.id.longitude);

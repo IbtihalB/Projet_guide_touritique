@@ -14,6 +14,7 @@ import java.util.ArrayList;
 
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -83,15 +84,14 @@ public class MosqueeAdapter extends RecyclerView.Adapter<MosqueeAdapter.ViewHold
 
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        private ImageView duree;
-        public ImageView imageView;
+        private ImageView duree;public ImageView imageView;
     public ImageView localisation;
-    public LinearLayout linearLayout;
+    public CardView linearLayout;
     public TextView name_textview;
     public TextView adress_textview;
-        public TextView LATITUDE_textview;
-        public TextView LONGITUDE_textview;
-        public TextView distance_textview;
+    public TextView LATITUDE_textview;
+    public TextView LONGITUDE_textview;
+    public TextView distance_textview;
 
         public ViewHolder(View itemView) {
         super(itemView);
@@ -99,8 +99,9 @@ public class MosqueeAdapter extends RecyclerView.Adapter<MosqueeAdapter.ViewHold
         this.adress_textview=(TextView)itemView.findViewById(R.id.mosquee_adress);
         this.imageView = (ImageView) itemView.findViewById(R.id.imageView);
         this.localisation = (ImageView) itemView.findViewById(R.id.imageView4);
-        this.duree = (ImageView) itemView.findViewById(R.id.imageView3);
-        linearLayout = (LinearLayout)itemView.findViewById(R.id.mosquee_layout);
+
+            this.duree = (ImageView) itemView.findViewById(R.id.imageView3);
+        linearLayout = (CardView)itemView.findViewById(R.id.mosquee_layout);
         this.LATITUDE_textview = (TextView) itemView.findViewById(R.id.latitude);
         this.LONGITUDE_textview = (TextView) itemView.findViewById(R.id.longitude);
         this.distance_textview = (TextView) itemView.findViewById(R.id.distance1);

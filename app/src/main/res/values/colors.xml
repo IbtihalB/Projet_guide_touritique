@@ -14,4 +14,6 @@
     <color name="black_overlay">#66000000</color>
     <color name="distance">#D61061</color>
     <color name="colorPrimary">#FF368569</color>
+    <color name="golden" >#FFFDD433</color>
+
 </resources>

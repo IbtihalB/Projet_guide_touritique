@@ -96,10 +96,12 @@ public class Maps_Appel_Activity extends FragmentActivity
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+
         // Add a marker in Sydney and move the camera
         LatLng service = new LatLng(Latitude,  Longitude);
         mMap.addMarker(new MarkerOptions().position(service).title(" Marker in "+service_selectionned ));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(service,20));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(service,50));
     }
 
 

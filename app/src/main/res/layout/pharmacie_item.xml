@@ -1,53 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="390dp"
+    android:layout_height="190dp"
+    android:orientation="horizontal"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="13dp"
+    android:layout_marginRight="9dp"
+    android:id="@+id/pharmacie_layout"
+    >
+<LinearLayout
     android:layout_width="wrap_content"
     android:layout_height="190dp"
     android:orientation="horizontal"
-    android:id="@+id/pharmacie_layout"
     android:dividerHeight="1px"
-    android:background="@drawable/listview_item_border"
     >
 
     <LinearLayout
-        android:layout_width="175dp"
+        android:layout_width="156dp"
         android:layout_height="196dp"
         android:orientation="vertical">
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="144dp"
-            android:layout_height="wrap_content"
+            android:layout_height="142dp"
             android:layout_gravity="center"
             android:layout_marginTop="24dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
             tools:srcCompat="@tools:sample/avatars" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="13dp"
+        android:layout_width="wrap_content"
         android:layout_height="198dp"
         android:orientation="horizontal">
 
-        <View
-            android:id="@+id/divider2"
-            android:layout_width="97dp"
-            android:layout_height="130dp"
-            android:layout_marginLeft="-10dp"
-            android:layout_marginTop="23dp"
-            android:layout_marginRight="8dp"
-            android:layout_weight="1"
-            android:background="?android:attr/listDivider" />
+
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="223dp"
+        android:layout_width="229dp"
         android:layout_height="196dp"
         android:layout_marginLeft="5dp"
         android:orientation="vertical">
 
         <HorizontalScrollView
-            android:layout_width="205dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginRight="7dp">
@@ -85,8 +86,8 @@
 
             <ImageView
                 android:id="@+id/imageView3"
-                android:layout_width="42dp"
-                android:layout_height="22dp"
+                android:layout_width="40dp"
+                android:layout_height="19dp"
                 android:layout_marginLeft="-6dp"
                 android:layout_marginTop="4dp"
                 android:layout_weight="1"
@@ -94,7 +95,7 @@
                 tools:srcCompat="@drawable/marker_red" />
 
             <HorizontalScrollView
-                android:layout_width="187dp"
+                android:layout_width="178dp"
                 android:layout_height="match_parent">
 
                 <TextView
@@ -121,14 +122,14 @@
                     android:id="@+id/imageView2"
                     android:layout_width="40dp"
                     android:layout_height="19dp"
-                    android:layout_marginLeft="-6dp"
-                    android:layout_marginTop="3dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="7dp"
                     android:layout_weight="1"
                     tools:srcCompat="@android:drawable/sym_action_call" />
 
                 <TextView
                     android:id="@+id/pharmacie_tel"
-                    android:layout_width="195dp"
+                    android:layout_width="180dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="3dp"
                     android:layout_weight="1"
@@ -157,3 +158,4 @@
 
 </LinearLayout>
 
+</androidx.cardview.widget.CardView>

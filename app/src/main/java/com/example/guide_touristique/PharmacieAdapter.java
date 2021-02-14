@@ -22,6 +22,7 @@ import androidx.annotation.NonNull;
 import java.util.ArrayList;
 
 
+import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -55,8 +56,8 @@ public class PharmacieAdapter extends RecyclerView.Adapter<PharmacieAdapter.View
             public void onClick(View v) {
                 Intent intent = new Intent(parent.getContext(), Maps_Appel_Activity.class);
                 intent.putExtra("service", viewHolder.name_textview.getText());
-                intent.putExtra("Latitude", viewHolder.LATITUDE_textview.getText());
-                intent.putExtra("Longitude", viewHolder.LONGITUDE_textview.getText());
+                intent.putExtra("Latitude", Double.parseDouble((String) viewHolder.LATITUDE_textview.getText()));
+                intent.putExtra("Longitude", Double.parseDouble((String)viewHolder.LONGITUDE_textview.getText()));
                 intent.putExtra("Tel",viewHolder.tel_textview.getText().toString());
                 parent.getContext().startActivity(intent);
             }
@@ -113,8 +114,7 @@ public class PharmacieAdapter extends RecyclerView.Adapter<PharmacieAdapter.View
         holder.LATITUDE_textview.setText(Double.toString(Pharmacies.get(position).getPharmacielatitude()));
         holder.distance_textview.setText(Pharmacies.get(position).getDuree());
         holder.localisation.setImageResource(R.drawable.marker_red);
-
-        holder.appel.setImageResource( Resources.getSystem().getIdentifier("sym_action_call", "drawable", "android"));
+        holder.appel.setImageResource( R.drawable.phone_green);
 
 
     }
@@ -134,7 +134,7 @@ public class PharmacieAdapter extends RecyclerView.Adapter<PharmacieAdapter.View
 
 class ViewHolder extends RecyclerView.ViewHolder {
     public ImageView imageView;
-    public LinearLayout linearLayout;
+    public CardView linearLayout;
     public TextView name_textview;
     public TextView adress_textview;
     public TextView tel_textview;
@@ -154,7 +154,7 @@ class ViewHolder extends RecyclerView.ViewHolder {
         this.localisation=(ImageView) itemView.findViewById(R.id.imageView3);
         this.duree=(ImageView) itemView.findViewById(R.id.imageView4);
         this.appel=(ImageView) itemView.findViewById(R.id.imageView2);
-        linearLayout = (LinearLayout)itemView.findViewById(R.id.pharmacie_layout);
+        linearLayout = (CardView) itemView.findViewById(R.id.pharmacie_layout);
         this.LATITUDE_textview = (TextView) itemView.findViewById(R.id.latitude);
         this.LONGITUDE_textview = (TextView) itemView.findViewById(R.id.longitude);
         this.distance_textview = (TextView) itemView.findViewById(R.id.distance);
