@@ -5,8 +5,11 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -23,6 +26,10 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -46,6 +53,7 @@ public class Maps_Appel_Activity extends FragmentActivity
     static String Tel;
     static double Latitude;
     String service_selectionned;
+    LatLng a;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +64,7 @@ public class Maps_Appel_Activity extends FragmentActivity
         boolean state = intent.getBooleanExtra("state",true);
         Latitude = intent.getDoubleExtra("Latitude",0);
         Longitude = intent.getDoubleExtra("Longitude",0);
+        a= getIntent().getExtras().getParcelable("loca");
         Tel = intent.getStringExtra("tel");
         if(state==false)
             appeler.setVisibility(View.INVISIBLE);
@@ -80,10 +89,8 @@ public class Maps_Appel_Activity extends FragmentActivity
             }
         });
 
-
-
-
     }
+
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
@@ -99,7 +106,7 @@ public class Maps_Appel_Activity extends FragmentActivity
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
         // Add a marker in Sydney and move the camera
-        LatLng service = new LatLng(Latitude,  Longitude);
+        LatLng service = a;
         mMap.addMarker(new MarkerOptions().position(service).title(" Marker in "+service_selectionned ));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(service,50));
     }
@@ -131,6 +138,7 @@ public class Maps_Appel_Activity extends FragmentActivity
                 Toast.makeText(this,"Permission Denied",Toast.LENGTH_SHORT).show();}
         }
     }
+
 
 
 }

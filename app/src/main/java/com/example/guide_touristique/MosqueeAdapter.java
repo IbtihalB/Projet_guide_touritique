@@ -3,6 +3,8 @@ package com.example.guide_touristique;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
+import android.location.Address;
+import android.location.Geocoder;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +12,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 
 import androidx.annotation.NonNull;
@@ -18,6 +23,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.maps.model.LatLng;
 
 public class MosqueeAdapter extends RecyclerView.Adapter<MosqueeAdapter.ViewHolder> {
 
@@ -44,8 +50,9 @@ public class MosqueeAdapter extends RecyclerView.Adapter<MosqueeAdapter.ViewHold
                 Intent intent = new Intent(parent.getContext(), Maps_Appel_Activity.class);
                 intent.putExtra("service", viewHolder.name_textview.getText());
                 intent.putExtra("state", false);
-                intent.putExtra("Latitude",Double.parseDouble((String) viewHolder.LATITUDE_textview.getText()));
-                intent.putExtra("Longitude", Double.parseDouble((String)viewHolder.LONGITUDE_textview.getText()));
+                intent.putExtra("loca", getLatLangFromAddress(viewHolder.adress_textview.getText().toString(),parent.getContext()));
+
+
                 parent.getContext().startActivity(intent);
             }
         });
@@ -53,6 +60,21 @@ public class MosqueeAdapter extends RecyclerView.Adapter<MosqueeAdapter.ViewHold
         return viewHolder;
 
     }
+
+    public LatLng getLatLangFromAddress(String strAddress, Context context){
+        Geocoder coder = new Geocoder(context, Locale.getDefault());
+        List<Address> address;
+
+        try {
+            address = coder.getFromLocationName(strAddress,5);
+            if (address == null) {
+                return new LatLng(-10000, -10000);
+            }
+            Address location = address.get(0);
+            return new LatLng(location.getLatitude(), location.getLongitude());
+        } catch (IOException e) {
+            return new LatLng(-10000, -10000);
+        }}
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {

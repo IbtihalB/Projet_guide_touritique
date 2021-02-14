@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.Paint;
+import android.location.Address;
+import android.location.Geocoder;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +21,10 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 
 import androidx.cardview.widget.CardView;
@@ -27,6 +32,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.maps.model.LatLng;
 
 public class PharmacieAdapter extends RecyclerView.Adapter<PharmacieAdapter.ViewHolder> {
     private ArrayList<Pharmacie> Pharmacies;
@@ -56,8 +62,7 @@ public class PharmacieAdapter extends RecyclerView.Adapter<PharmacieAdapter.View
             public void onClick(View v) {
                 Intent intent = new Intent(parent.getContext(), Maps_Appel_Activity.class);
                 intent.putExtra("service", viewHolder.name_textview.getText());
-                intent.putExtra("Latitude", Double.parseDouble((String) viewHolder.LATITUDE_textview.getText()));
-                intent.putExtra("Longitude", Double.parseDouble((String)viewHolder.LONGITUDE_textview.getText()));
+                intent.putExtra("loca", getLatLangFromAddress(viewHolder.adress_textview.getText().toString(),parent.getContext()));
                 intent.putExtra("Tel",viewHolder.tel_textview.getText().toString());
                 parent.getContext().startActivity(intent);
             }
@@ -72,6 +77,19 @@ public class PharmacieAdapter extends RecyclerView.Adapter<PharmacieAdapter.View
 
     }
 
+    public LatLng getLatLangFromAddress(String strAddress, Context context){
+        Geocoder coder = new Geocoder(context, Locale.getDefault());
+        List<Address> address;
+        try {
+            address = coder.getFromLocationName(strAddress,5);
+            if (address == null) {
+                return new LatLng(-10000, -10000);
+            }
+            Address location = address.get(0);
+            return new LatLng(location.getLatitude(), location.getLongitude());
+        } catch (IOException e) {
+            return new LatLng(-10000, -10000);
+        }}
     private void makePhoneCall(Context context, String tel) {
         if (ActivityCompat.checkSelfPermission(
                 context, Manifest.permission.CALL_PHONE) ==

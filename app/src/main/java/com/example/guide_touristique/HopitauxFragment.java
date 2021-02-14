@@ -450,7 +450,7 @@ private class HttpReqTask4 extends AsyncTask<Void,Void, ArrayList <Hopital >>
                             endPoint.setLatitude(hopitaux.get(i).getHopitallatitude());
                             endPoint.setLongitude(hopitaux.get(i).getHopitallongitude());
                             distance = endPoint.distanceTo(startPoint);
-                            distance/=1600;
+                            distance/=1333.3333333333;
                             int heure= (int) (distance/60);
                             int mn = (int) (distance% 60);
 

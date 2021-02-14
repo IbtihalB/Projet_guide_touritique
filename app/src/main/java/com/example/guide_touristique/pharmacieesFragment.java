@@ -309,7 +309,7 @@
                                                     endPoint.setLatitude(pharmacies.get(i).getPharmacielatitude());
                                                     endPoint.setLongitude(pharmacies.get(i).getPharmacielongitude());
                                                     distance = startPoint.distanceTo(endPoint);
-                                                    distance/=1600;
+                                                    distance/=1333.3333333333;
                                                     pharmacies.get(i).setDistance(distance);
                                                     int heure= (int) (distance/60);
                                                     int mn = (int) (distance% 60);

@@ -140,7 +140,7 @@ public class MosquesFragment extends Fragment {
                             endPoint.setLatitude(mosques.get(i).getMosqueelatitude());
                             endPoint.setLongitude(mosques.get(i).getMosqueelongitude());
                             distance = startPoint.distanceTo(endPoint);
-                            distance/=1600;
+                            distance/=1333.3333333333;
                             mosques.get(i).setDistance(distance);
                             int heure= (int) (distance/60);
                             int mn = (int) (distance% 60);
